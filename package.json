@@ -1,0 +1,15 @@
+{
+  "name": "search-engine-project",
+  "version": "1.0.0",
+  "description": "A full-stack search engine: custom inverted index + TF-IDF/cosine ranking backend with a live search UI.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": ["search-engine", "information-retrieval", "tf-idf", "full-stack", "portfolio"],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
