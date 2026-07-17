@@ -1,0 +1,282 @@
+[
+  {
+    "id": 1,
+    "title": "Understanding Hash Tables",
+    "url": "/docs/data-structures/hash-tables",
+    "category": "Data Structures",
+    "content": "A hash table is a data structure that maps keys to values using a hash function to compute an index into an array of buckets. The average time complexity for insertion, deletion, and lookup is O(1), making hash tables one of the most efficient structures for key-value storage. Collisions occur when two keys hash to the same bucket, and are typically resolved using chaining or open addressing. Chaining stores a linked list at each bucket, while open addressing probes for the next available slot. Choosing a good hash function that distributes keys uniformly is critical to maintaining performance as the table grows."
+  },
+  {
+    "id": 2,
+    "title": "Binary Search Trees Explained",
+    "url": "/docs/data-structures/bst",
+    "category": "Data Structures",
+    "content": "A binary search tree is a node-based structure where each node has at most two children, and for every node the left subtree contains only smaller values while the right subtree contains only larger values. This property allows search, insertion, and deletion to run in O(log n) time on a balanced tree, though a poorly balanced tree can degrade to O(n). Self-balancing variants like AVL trees and red-black trees automatically restructure themselves after insertions and deletions to guarantee logarithmic height. In-order traversal of a binary search tree yields elements in sorted order, which is useful for implementing ordered maps and sets."
+  },
+  {
+    "id": 3,
+    "title": "Introduction to TF-IDF Ranking",
+    "url": "/docs/search/tf-idf",
+    "category": "Search & Information Retrieval",
+    "content": "TF-IDF, short for term frequency times inverse document frequency, is a numerical statistic used to reflect how important a word is to a document within a larger collection. Term frequency measures how often a word appears in a document, while inverse document frequency down-weights words that appear across many documents, since common words carry less discriminative power. Multiplying the two produces a score that highlights words that are frequent in a specific document but rare across the corpus. Search engines commonly combine TF-IDF scores across query terms, often using cosine similarity between the query vector and each document vector, to rank results by relevance."
+  },
+  {
+    "id": 4,
+    "title": "Building an Inverted Index",
+    "url": "/docs/search/inverted-index",
+    "category": "Search & Information Retrieval",
+    "content": "An inverted index is a mapping from content, typically words, to the set of documents that contain them, and it is the backbone of nearly every modern search engine. Rather than scanning every document for a query term, the engine looks up the term directly in the index and retrieves a precomputed list of matching document identifiers, often called a postings list. Postings lists frequently store additional metadata such as term frequency and position, which enables phrase queries and relevance ranking. Building the index involves tokenizing documents, removing stopwords, applying stemming or lemmatization, and then aggregating the resulting terms into the index structure."
+  },
+  {
+    "id": 5,
+    "title": "REST API Design Best Practices",
+    "url": "/docs/backend/rest-api-design",
+    "category": "Backend Development",
+    "content": "A well designed REST API uses nouns rather than verbs in its endpoint paths, relying on HTTP methods such as GET, POST, PUT, and DELETE to express the action being performed. Resources should be organized hierarchically, for example /users/42/orders for a specific user's orders, and responses should use consistent JSON structures with clear error messages and appropriate status codes. Versioning the API, either through the URL path or a custom header, protects existing clients when breaking changes are introduced. Pagination, filtering, and sorting parameters should follow a predictable convention so that consumers of the API can compose queries without reading extensive documentation."
+  },
+  {
+    "id": 6,
+    "title": "Express.js Middleware Explained",
+    "url": "/docs/backend/express-middleware",
+    "category": "Backend Development",
+    "content": "Middleware functions in Express have access to the request object, the response object, and the next function in the application's request-response cycle. Middleware can execute code, modify the request or response, end the request-response cycle, or call the next middleware in the stack. Common uses include logging, authentication, parsing request bodies, and handling errors centrally. Because middleware executes in the order it is registered, placing an authentication check before route handlers ensures unauthorized requests never reach protected logic. Error-handling middleware is defined with four arguments instead of three, allowing Express to recognize it as a dedicated error handler."
+  },
+  {
+    "id": 7,
+    "title": "Understanding Node.js Event Loop",
+    "url": "/docs/backend/node-event-loop",
+    "category": "Backend Development",
+    "content": "Node.js uses a single-threaded event loop to handle asynchronous operations without blocking execution, delegating expensive tasks like file I/O and network requests to the underlying system through libuv. The event loop cycles through phases including timers, pending callbacks, idle and prepare, poll, check, and close callbacks, executing queued callbacks in each phase before moving to the next. Because JavaScript itself runs on a single thread, long-running synchronous code can block the event loop and delay all other operations, which is why CPU-intensive work should be offloaded to worker threads or separate processes. Understanding the distinction between microtasks, such as promises, and macrotasks, such as setTimeout, is essential for reasoning about execution order."
+  },
+  {
+    "id": 8,
+    "title": "SQL Joins Explained",
+    "url": "/docs/databases/sql-joins",
+    "category": "Databases",
+    "content": "An inner join returns only the rows that have matching values in both tables being joined, discarding rows without a corresponding match on either side. A left outer join returns every row from the left table along with matching rows from the right table, filling in nulls where no match exists, while a right outer join does the reverse. A full outer join combines the results of both left and right joins, returning all rows from either table with nulls where no match is found. Understanding join types is essential for writing correct queries, since choosing the wrong join can silently drop or duplicate rows in the result set."
+  },
+  {
+    "id": 9,
+    "title": "Database Indexing Fundamentals",
+    "url": "/docs/databases/indexing",
+    "category": "Databases",
+    "content": "A database index is a separate data structure, commonly a B-tree, that stores a sorted copy of one or more columns along with pointers back to the original rows, dramatically speeding up lookups and range queries. Without an index, the database must perform a full table scan, checking every row to find matches, which becomes prohibitively slow as tables grow large. Indexes speed up reads but slow down writes, since every insert or update must also update the index, so indexes should be added deliberately based on query patterns rather than applied to every column. Composite indexes, which cover multiple columns, are most effective when the query filters on the leftmost columns of the index in order."
+  },
+  {
+    "id": 10,
+    "title": "ACID Transactions Explained",
+    "url": "/docs/databases/acid-transactions",
+    "category": "Databases",
+    "content": "ACID stands for atomicity, consistency, isolation, and durability, the four properties that guarantee reliable processing of database transactions. Atomicity ensures a transaction either completes entirely or has no effect at all, so partial writes never persist after a failure. Consistency guarantees a transaction moves the database from one valid state to another, respecting all defined constraints. Isolation controls how concurrent transactions interact, with isolation levels such as read committed and serializable trading off consistency guarantees against performance, while durability ensures that once a transaction is committed it survives crashes and power failures."
+  },
+  {
+    "id": 11,
+    "title": "React Hooks Deep Dive",
+    "url": "/docs/frontend/react-hooks",
+    "category": "Frontend Development",
+    "content": "React hooks let function components use state and other React features without writing a class. The useState hook returns a stateful value and a function to update it, triggering a re-render whenever the value changes, while useEffect lets components perform side effects such as data fetching or subscriptions after render. Custom hooks allow developers to extract and reuse stateful logic across components by composing built-in hooks into a function whose name starts with use. The dependency array passed to useEffect controls when the effect re-runs, and omitting it or getting it wrong is one of the most common sources of bugs in React applications."
+  },
+  {
+    "id": 12,
+    "title": "CSS Flexbox Layout Guide",
+    "url": "/docs/frontend/css-flexbox",
+    "category": "Frontend Development",
+    "content": "Flexbox is a one-dimensional layout model that distributes space among items in a container along a single axis, either row or column. Setting display to flex on a container turns its direct children into flex items, which can then be aligned and distributed using properties like justify-content and align-items. The flex-grow, flex-shrink, and flex-basis properties, often combined into the flex shorthand, control how individual items grow or shrink relative to available space. Flexbox is particularly well suited for component-level layouts such as navigation bars and form controls, while CSS grid is generally preferred for two-dimensional page-level layouts."
+  },
+  {
+    "id": 13,
+    "title": "JavaScript Closures Explained",
+    "url": "/docs/frontend/js-closures",
+    "category": "Frontend Development",
+    "content": "A closure is formed when a function retains access to variables from its enclosing lexical scope even after that outer function has finished executing. This behavior enables powerful patterns such as private state, memoization, and function factories, where an inner function remembers the environment in which it was created. A common pitfall involves closures inside loops, where all closures may reference the same variable if declared with var rather than let, leading to unexpected shared state. Understanding closures is fundamental to mastering JavaScript, since they underpin many core language features including callbacks, event handlers, and module patterns."
+  },
+  {
+    "id": 14,
+    "title": "Introduction to Web Crawlers",
+    "url": "/docs/search/web-crawlers",
+    "category": "Search & Information Retrieval",
+    "content": "A web crawler, also known as a spider, is a program that systematically browses the web by following hyperlinks, starting from a set of seed URLs and discovering new pages to fetch and index. Crawlers maintain a frontier of URLs to visit, prioritizing pages based on factors like freshness, importance, and change frequency, while respecting rules defined in each site's robots.txt file. Politeness policies limit how frequently a crawler requests pages from the same host to avoid overloading servers, and duplicate detection prevents the same content from being indexed multiple times under different URLs. The pages a crawler fetches are typically parsed, cleaned, and passed downstream to an indexing pipeline that builds the searchable representation of the content."
+  },
+  {
+    "id": 15,
+    "title": "PageRank Algorithm Overview",
+    "url": "/docs/search/pagerank",
+    "category": "Search & Information Retrieval",
+    "content": "PageRank is a link analysis algorithm that assigns a numerical importance score to each page in a network based on the quantity and quality of links pointing to it. The core idea is that a link from one page to another can be viewed as a vote of confidence, and votes from highly ranked pages carry more weight than votes from obscure ones. The algorithm models a random surfer who clicks links at random and occasionally jumps to a random page, and the long-run probability of the surfer being on a given page corresponds to its PageRank. While modern search engines use hundreds of additional ranking signals, PageRank remains a foundational concept in understanding how link structure informs relevance."
+  },
+  {
+    "id": 16,
+    "title": "Cosine Similarity for Text Search",
+    "url": "/docs/search/cosine-similarity",
+    "category": "Search & Information Retrieval",
+    "content": "Cosine similarity measures the angle between two non-zero vectors in a multi-dimensional space, producing a value between negative one and one that indicates how similar their orientations are, regardless of magnitude. In text search, documents and queries are represented as vectors of term weights, often computed with TF-IDF, and the cosine similarity between a query vector and each document vector provides a ranking score. Because the metric ignores vector length, it naturally normalizes for document length, preventing longer documents from dominating results purely by containing more words. A cosine similarity close to one indicates the query and document share a very similar distribution of important terms."
+  },
+  {
+    "id": 17,
+    "title": "Load Balancing Strategies",
+    "url": "/docs/infrastructure/load-balancing",
+    "category": "Infrastructure",
+    "content": "Load balancing distributes incoming network traffic across multiple servers to ensure no single server becomes a bottleneck, improving both availability and response time. Round robin cycles requests evenly across a pool of servers, while least connections routes new requests to whichever server currently has the fewest active connections, better handling requests with varying processing times. Health checks continuously probe backend servers and automatically remove unhealthy ones from rotation, preventing traffic from being routed to a server that has crashed or become unresponsive. Layer 4 load balancers operate on IP and port information, while layer 7 load balancers can route based on HTTP headers, cookies, or URL paths, enabling more sophisticated traffic management."
+  },
+  {
+    "id": 18,
+    "title": "Caching Strategies for Web Applications",
+    "url": "/docs/infrastructure/caching",
+    "category": "Infrastructure",
+    "content": "Caching stores the results of expensive computations or frequently accessed data closer to where it is needed, dramatically reducing latency and load on backend systems. A cache-aside strategy has the application check the cache first, falling back to the source of truth on a miss and then populating the cache for subsequent requests, while a write-through cache updates the cache and the database together on every write. Cache invalidation, deciding when cached data is stale and must be refreshed, is widely regarded as one of the hardest problems in computer science, since overly aggressive invalidation reduces cache effectiveness while overly lazy invalidation serves stale data. Time-based expiration, versioned keys, and explicit invalidation on writes are common strategies used together to balance freshness against performance."
+  },
+  {
+    "id": 19,
+    "title": "Understanding Docker Containers",
+    "url": "/docs/infrastructure/docker",
+    "category": "Infrastructure",
+    "content": "Docker packages an application together with all of its dependencies into a single portable unit called a container, ensuring the software runs consistently across different environments. Containers share the host operating system's kernel but remain isolated from one another through namespaces and control groups, making them significantly lighter weight than traditional virtual machines. A Dockerfile defines the steps needed to build an image, typically starting from a base image, copying application code, installing dependencies, and specifying the command to run when a container starts. Images are built in layers, and Docker caches unchanged layers between builds, which is why ordering instructions from least to most frequently changed can dramatically speed up build times."
+  },
+  {
+    "id": 20,
+    "title": "Introduction to Microservices Architecture",
+    "url": "/docs/architecture/microservices",
+    "category": "Architecture",
+    "content": "A microservices architecture structures an application as a collection of small, independently deployable services, each responsible for a specific business capability and communicating over well-defined APIs, often HTTP or messaging queues. This approach allows teams to develop, deploy, and scale services independently, and enables using different technology stacks where appropriate for each service's requirements. The tradeoff is significantly increased operational complexity compared to a monolith, since developers must now reason about network failures, distributed transactions, and service discovery. Patterns like circuit breakers, API gateways, and centralized logging and tracing become essential tools for managing the complexity that microservices introduce."
+  },
+  {
+    "id": 21,
+    "title": "Authentication vs Authorization",
+    "url": "/docs/security/authn-vs-authz",
+    "category": "Security",
+    "content": "Authentication verifies who a user is, typically through credentials like a password, a one-time code, or a biometric factor, while authorization determines what an authenticated user is permitted to do. Confusing the two is a common source of security bugs, such as an endpoint that correctly checks whether a user is logged in but forgets to check whether that user actually owns the resource being requested. Common authentication mechanisms include session cookies, JSON Web Tokens, and OAuth-based single sign-on, each with different tradeoffs around statelessness and revocation. Authorization is commonly implemented through role-based access control, where permissions are attached to roles rather than individual users, or more granular attribute-based access control for complex permission requirements."
+  },
+  {
+    "id": 22,
+    "title": "Understanding JSON Web Tokens",
+    "url": "/docs/security/jwt",
+    "category": "Security",
+    "content": "A JSON Web Token, or JWT, is a compact, URL-safe string consisting of three base64-encoded parts, a header, a payload, and a signature, separated by dots. The payload carries claims about the user or session, such as an expiration time and a subject identifier, and the signature allows a server to verify the token has not been tampered with, provided it holds the correct secret or public key. Because JWTs are self-contained, a server can validate them without a database lookup, making them popular for stateless authentication in distributed systems. However, this same property makes revoking a JWT before its expiration difficult, since the token remains valid anywhere it is presented until it naturally expires, unless additional infrastructure like a token blocklist is introduced."
+  },
+  {
+    "id": 23,
+    "title": "SQL Injection and How to Prevent It",
+    "url": "/docs/security/sql-injection",
+    "category": "Security",
+    "content": "SQL injection occurs when untrusted user input is concatenated directly into a SQL query, allowing an attacker to alter the query's logic and potentially read, modify, or delete data they should never have access to. A classic example is a login form where an attacker submits a username crafted to always evaluate as true, bypassing the password check entirely. Parameterized queries, also called prepared statements, are the primary defense, since they separate the query structure from user-supplied values so that input is always treated as data rather than executable code. Object-relational mapping libraries generally use parameterized queries by default, but developers can still introduce vulnerabilities by falling back to raw string concatenation for dynamic query construction."
+  },
+  {
+    "id": 24,
+    "title": "Big O Notation Fundamentals",
+    "url": "/docs/algorithms/big-o-notation",
+    "category": "Algorithms",
+    "content": "Big O notation describes the upper bound of an algorithm's running time or space usage as the input size grows, focusing on how performance scales rather than exact timing on any particular machine. An algorithm with O(1) complexity takes constant time regardless of input size, while O(n) grows linearly and O(n squared) grows quadratically, meaning doubling the input roughly quadruples the work. Logarithmic complexity, O(log n), appears in algorithms that repeatedly halve the problem size, such as binary search, and grows remarkably slowly even for very large inputs. When comparing algorithms, Big O notation strips away constant factors and lower-order terms, focusing on the dominant term that determines behavior at scale."
+  },
+  {
+    "id": 25,
+    "title": "Sorting Algorithms Compared",
+    "url": "/docs/algorithms/sorting-comparison",
+    "category": "Algorithms",
+    "content": "Quicksort selects a pivot element and partitions the array so that smaller elements come before it and larger elements come after, then recursively sorts each partition, achieving average O(n log n) performance though worst-case O(n squared) on already sorted input with a poor pivot choice. Merge sort divides the array in half recursively until subarrays of size one remain, then merges them back together in sorted order, guaranteeing O(n log n) performance in all cases at the cost of additional memory. Insertion sort, while O(n squared) in general, performs extremely well on nearly sorted data and is often used as the base case within more sophisticated hybrid sorting algorithms. The choice of sorting algorithm depends on factors including data size, whether stability is required, and whether the data is already partially ordered."
+  },
+  {
+    "id": 26,
+    "title": "Dynamic Programming Explained",
+    "url": "/docs/algorithms/dynamic-programming",
+    "category": "Algorithms",
+    "content": "Dynamic programming solves complex problems by breaking them into overlapping subproblems, solving each subproblem once, and storing its result so it never needs to be recomputed. This memoization technique transforms algorithms that would otherwise take exponential time, such as a naive recursive Fibonacci calculation, into ones that run in polynomial time by trading additional memory for reduced computation. Problems are typically approached either top-down, using recursion with a memo table, or bottom-up, iteratively filling a table from the smallest subproblems upward. Recognizing whether a problem exhibits optimal substructure and overlapping subproblems is the key skill in identifying when dynamic programming applies."
+  },
+  {
+    "id": 27,
+    "title": "Graph Traversal: BFS vs DFS",
+    "url": "/docs/algorithms/graph-traversal",
+    "category": "Algorithms",
+    "content": "Breadth-first search explores a graph level by level using a queue, visiting all neighbors of a node before moving on to their neighbors, which makes it well suited for finding the shortest path in an unweighted graph. Depth-first search instead explores as far as possible along each branch before backtracking, typically implemented with a stack or recursion, and is well suited for tasks like detecting cycles or exploring all possible paths. Both algorithms run in O(V + E) time, where V is the number of vertices and E is the number of edges, since each vertex and edge is visited at most once. The choice between them often depends on the specific problem, memory constraints, and whether the shortest path property of BFS is required."
+  },
+  {
+    "id": 28,
+    "title": "Git Branching Strategies",
+    "url": "/docs/tools/git-branching",
+    "category": "Developer Tools",
+    "content": "Git Flow defines a strict branching model with dedicated branches for features, releases, and hotfixes, all merging through a central develop branch before eventually reaching main, which works well for projects with scheduled releases. Trunk-based development takes the opposite approach, encouraging developers to merge small changes directly into a single main branch frequently, often behind feature flags, which reduces merge conflicts and supports continuous delivery. GitHub Flow offers a lightweight middle ground, where feature branches are created from main, opened as pull requests for review, and merged back once approved and tested. The right strategy depends on team size, release cadence, and how much process overhead a team is willing to accept in exchange for stability."
+  },
+  {
+    "id": 29,
+    "title": "Continuous Integration Fundamentals",
+    "url": "/docs/tools/continuous-integration",
+    "category": "Developer Tools",
+    "content": "Continuous integration is the practice of frequently merging code changes into a shared repository, with each merge automatically triggering a build and test suite to catch integration problems as early as possible. A CI pipeline typically runs linting, unit tests, and integration tests on every pull request, blocking merges when checks fail so that broken code never reaches the main branch. Fast feedback is essential to the practice's effectiveness, since a pipeline that takes an hour to report failures undermines the goal of catching problems quickly. Continuous integration is often paired with continuous deployment, where changes that pass all checks are automatically released to production without manual intervention."
+  },
+  {
+    "id": 30,
+    "title": "Writing Effective Unit Tests",
+    "url": "/docs/testing/unit-testing",
+    "category": "Testing",
+    "content": "A good unit test verifies a single unit of behavior in isolation, typically a function or method, using clear arrange, act, and assert sections that make the test's intent obvious at a glance. Tests should be deterministic and independent of one another, meaning the outcome of one test never depends on another test having run first, and external dependencies like databases or network calls are usually replaced with mocks or stubs. Test names should describe the expected behavior in plain language, such as returns_empty_list_when_input_is_empty, making failures self-explanatory without needing to read the test body. High code coverage alone does not guarantee good tests, since coverage measures which lines executed but says nothing about whether the assertions actually validate correct behavior."
+  },
+  {
+    "id": 31,
+    "title": "Understanding WebSockets",
+    "url": "/docs/networking/websockets",
+    "category": "Networking",
+    "content": "WebSockets provide a persistent, full-duplex communication channel over a single TCP connection, allowing a server to push data to a client at any time without the client having to repeatedly poll for updates. The connection begins as a standard HTTP request that includes an upgrade header, and once the server agrees, the protocol switches from HTTP to the WebSocket protocol for the remainder of the connection's lifetime. This makes WebSockets well suited for applications requiring real-time updates, such as chat applications, live collaborative editing, and multiplayer games, where the overhead of repeated HTTP requests would introduce unacceptable latency. Unlike HTTP, WebSocket connections remain open, which means servers must carefully manage connection state and resource usage as the number of concurrent clients grows."
+  },
+  {
+    "id": 32,
+    "title": "HTTP Status Codes Explained",
+    "url": "/docs/networking/http-status-codes",
+    "category": "Networking",
+    "content": "HTTP status codes are grouped into five classes indicated by their first digit, with 2xx codes signaling success, 3xx indicating redirection, 4xx representing client errors, and 5xx representing server errors. A 200 status means the request succeeded, while 201 specifically indicates a resource was successfully created, commonly returned after a POST request. Among client errors, 400 signals a malformed request, 401 means the client must authenticate, 403 means the client is authenticated but not authorized, and 404 means the requested resource does not exist. Server errors like 500 indicate an unexpected condition on the server, while 503 signals the server is temporarily unable to handle the request, often due to overload or maintenance."
+  },
+  {
+    "id": 33,
+    "title": "Python List Comprehensions",
+    "url": "/docs/python/list-comprehensions",
+    "category": "Python",
+    "content": "A list comprehension provides a concise syntax for creating a new list by applying an expression to each item in an iterable, optionally filtering items with a conditional clause. The general form places the expression first, followed by a for clause and an optional if clause, all within square brackets, replacing what would otherwise require several lines of an explicit loop with append calls. List comprehensions are generally faster than equivalent explicit loops because the iteration is implemented in C under the hood rather than interpreted line by line in Python bytecode. While powerful, deeply nested or overly complex comprehensions can hurt readability, and many style guides recommend falling back to a regular loop once a comprehension becomes difficult to read at a glance."
+  },
+  {
+    "id": 34,
+    "title": "Python Decorators Explained",
+    "url": "/docs/python/decorators",
+    "category": "Python",
+    "content": "A decorator is a function that takes another function as an argument, extends or modifies its behavior, and returns a new function, all without permanently altering the original function's source code. Decorators are applied using the at-sign syntax placed directly above a function definition, and Python resolves this into an ordinary function call under the hood. Common built-in decorators include staticmethod and classmethod, while custom decorators are frequently used for cross-cutting concerns such as logging, timing, caching, and access control. The functools.wraps decorator is commonly applied inside custom decorators to preserve the original function's name and docstring, which would otherwise be overwritten by the wrapper function."
+  },
+  {
+    "id": 35,
+    "title": "TypeScript Generics Guide",
+    "url": "/docs/typescript/generics",
+    "category": "TypeScript",
+    "content": "Generics allow a function, class, or interface to operate on a variety of types while still preserving type information, avoiding the need to duplicate code for each specific type or fall back to the unsafe any type. A generic function declares one or more type parameters in angle brackets, which are then used within the function signature and body, letting the compiler infer or check the actual type used at each call site. Constraints can be applied to generic type parameters using the extends keyword, restricting which types are valid while still allowing flexibility across a family of related types. Generics are extensively used throughout TypeScript's standard library and popular frameworks to build reusable, type-safe abstractions such as collections, promises, and API client functions."
+  },
+  {
+    "id": 36,
+    "title": "Understanding CORS",
+    "url": "/docs/networking/cors",
+    "category": "Networking",
+    "content": "Cross-Origin Resource Sharing, or CORS, is a browser security mechanism that restricts web pages from making requests to a domain different from the one that served the page, unless the target server explicitly allows it. When a script makes a cross-origin request, the browser sends an Origin header, and the server must respond with an Access-Control-Allow-Origin header that permits that origin for the browser to expose the response to the requesting script. For requests that could have side effects, such as those using methods other than GET or POST with certain content types, the browser first sends a preflight OPTIONS request to check whether the actual request is permitted. CORS is a client-side enforcement mechanism, meaning it protects browsers from malicious scripts but does nothing to protect a server from requests made outside a browser context, such as from a script or curl command."
+  },
+  {
+    "id": 37,
+    "title": "Introduction to GraphQL",
+    "url": "/docs/backend/graphql",
+    "category": "Backend Development",
+    "content": "GraphQL is a query language for APIs that lets clients specify exactly which fields they need, avoiding the over-fetching and under-fetching problems common with fixed REST endpoints. A single GraphQL endpoint typically handles all requests, with the specific operation, query, mutation, or subscription, determined by the request body rather than the URL path. A schema, written in GraphQL's type system, defines every available type and field, serving as a contract between the client and server that can be introspected and validated. Because a single query can traverse relationships across multiple underlying data sources, GraphQL servers must guard against overly expensive queries, often using techniques like query complexity analysis or depth limiting."
+  },
+  {
+    "id": 38,
+    "title": "Recursion and the Call Stack",
+    "url": "/docs/algorithms/recursion",
+    "category": "Algorithms",
+    "content": "A recursive function is one that calls itself with a smaller version of the original problem, continuing until it reaches a base case that can be answered directly without further recursive calls. Each recursive call adds a new frame to the call stack, storing that call's local variables and the point to return to, which means excessively deep recursion can exhaust available stack space and cause a stack overflow. Some languages optimize tail-recursive functions, where the recursive call is the very last operation performed, by reusing the current stack frame instead of allocating a new one, though this optimization is notably absent in standard JavaScript engines. Recursion often produces more elegant and readable solutions for naturally recursive problems, such as tree traversal, but iterative solutions with explicit stacks are sometimes preferred when stack depth or performance is a concern."
+  },
+  {
+    "id": 39,
+    "title": "API Rate Limiting Strategies",
+    "url": "/docs/backend/rate-limiting",
+    "category": "Backend Development",
+    "content": "Rate limiting restricts how many requests a client can make to an API within a given time window, protecting backend systems from being overwhelmed by excessive traffic, whether accidental or malicious. The token bucket algorithm maintains a bucket of tokens that refills at a steady rate, with each incoming request consuming one token, allowing short bursts of traffic while still enforcing a long-term average rate. The sliding window algorithm tracks request counts across a moving time window, providing smoother enforcement than a fixed window, which can allow twice the intended rate right at window boundaries. Rate limits are commonly communicated to clients through response headers indicating the limit, remaining requests, and reset time, allowing well-behaved clients to adjust their request patterns proactively."
+  },
+  {
+    "id": 40,
+    "title": "Understanding Regular Expressions",
+    "url": "/docs/tools/regular-expressions",
+    "category": "Developer Tools",
+    "content": "A regular expression is a sequence of characters that defines a search pattern, used for matching, extracting, or replacing text based on rules rather than exact literal matches. Character classes, quantifiers, and anchors form the core building blocks, where a quantifier like a plus sign matches one or more repetitions and an anchor like a caret matches the beginning of a string. Capture groups, delimited by parentheses, allow a portion of a matched pattern to be extracted or referenced separately, which is especially useful when parsing structured text like log lines or URLs. While extremely powerful, poorly constructed regular expressions with nested quantifiers can suffer from catastrophic backtracking, causing execution time to grow exponentially on certain crafted inputs."
+  }
+]

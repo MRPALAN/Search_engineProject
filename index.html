@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>grepr — search the docs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="scanline"></div>
+
+<header class="topbar">
+  <div class="logo">
+    <span class="logo-bracket">&gt;</span>grepr<span class="cursor">_</span>
+  </div>
+  <div class="topbar-meta" id="index-stats">indexing…</div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1 class="hero-title">Search 40 engineering docs<br/>in <span class="accent">milliseconds.</span></h1>
+    <p class="hero-sub">A hand-built inverted index with TF-IDF &amp; cosine-similarity ranking — no external search service, no black box.</p>
+
+    <div class="search-shell">
+      <span class="prompt-glyph">$</span>
+      <input
+        id="search-input"
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="grep --relevance &quot;binary search tree&quot;"
+      />
+      <div class="search-meta" id="search-meta"></div>
+    </div>
+
+    <div class="chip-row" id="example-chips"></div>
+  </section>
+
+  <section class="results-wrap">
+    <ol class="results" id="results"></ol>
+    <div class="empty-state" id="empty-state">
+      <p>Type a query above — try an algorithm, a protocol, or a language feature.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>Custom index &middot; TF&#8209;IDF &middot; cosine similarity &middot; Express API</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
